@@ -1,14 +1,15 @@
-import { FaaPage } from './app.po';
+import { browser, element, by } from 'protractor';
 
-describe('faa App', () => {
-  let page: FaaPage;
+describe('QuickStart E2E Tests', function () {
 
-  beforeEach(() => {
-    page = new FaaPage();
+  let expectedMsg = 'Hello Angular';
+
+  beforeEach(function () {
+    browser.get('');
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+  it('should display: ' + expectedMsg, function () {
+    expect(element(by.css('h1')).getText()).toEqual(expectedMsg);
   });
+
 });
